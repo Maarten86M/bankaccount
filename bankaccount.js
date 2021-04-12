@@ -17,19 +17,33 @@ const bankFunction = function (pin, id) {
         }
     }
 }
-bankFunction(3333, 4);
+// bankFunction(3333, 4);
 
 // geld storten.
 
-const stortFunction = function (pin, id, money) {
+const stortFunction = function (pin, id, moneyStort) {
     for (let i = 0; i < bankAccount.length; i++) {
         if ((pin === bankAccount[i].pin) && (id === bankAccount[i].id)) {
-            const newSaldo = money + bankAccount[i].saldo;
-            return console.log("Beste " + bankAccount[i].name + ", uw wilt $ "+ money + ",- op de bank zetten. Uw nieuwe saldo is $ " + newSaldo + ",-");
+            const newSaldo = moneyStort + bankAccount[i].saldo;
+            return console.log("Beste " + bankAccount[i].name + ", uw wilt $ " + moneyStort + ",- op de bank zetten. Uw nieuwe saldo is $ " + newSaldo + ",-");
         }
         if (!(pin === bankAccount[i].pin) === (id === bankAccount[i].id)) {
             console.log("Probeer het nogmaals")
         }
     }
 }
-stortFunction(3333,4,10000)
+stortFunction(3333, 4, 10000)
+
+// geld opnemen
+
+const opneemFunction = function (pin, id, moneyOpneem) {
+    for (let i = 0; i < bankAccount.length; i++) {
+        if ((pin === bankAccount[i].pin) && (id === bankAccount[i].id)) {
+            const newSaldoOpneem = bankAccount[i].saldo - moneyOpneem;
+            return console.log("Beste " + bankAccount[i].name + ", uw wilt $ " + moneyOpneem + ",- opnemen. Uw nieuwe saldo is $ " + newSaldoOpneem + ",-");
+        }
+        if (!(pin === bankAccount[i].pin) === (id === bankAccount[i].id)) {
+            console.log("Probeer het nogmaals")
+    }
+}}
+opneemFunction(2222,3,100)
