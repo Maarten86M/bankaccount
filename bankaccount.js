@@ -5,10 +5,12 @@ const bankAccount = [
     {id: 4, saldo: 1333, pin: 3333, name: "Johan"}
 ]
 
-const bankFunction = function bankFunction(pin, id) {
+// Saldo opvragen.
+
+const bankFunction = function (pin, id) {
     for (let i = 0; i < bankAccount.length; i++) {
         if ((pin === bankAccount[i].pin) && (id === bankAccount[i].id)) {
-            return console.log("Beste "+ bankAccount[i].name + ", uw saldo is $ " + bankAccount[i].saldo + ",-" ) ;
+            return console.log("Beste " + bankAccount[i].name + ", uw saldo is $ " + bankAccount[i].saldo + ",-");
         }
         if (!(pin === bankAccount[i].pin) === (id === bankAccount[i].id)) {
             console.log("Probeer het nogmaals")
@@ -16,3 +18,18 @@ const bankFunction = function bankFunction(pin, id) {
     }
 }
 bankFunction(3333, 4);
+
+// geld storten.
+
+const stortFunction = function (pin, id, money) {
+    for (let i = 0; i < bankAccount.length; i++) {
+        if ((pin === bankAccount[i].pin) && (id === bankAccount[i].id)) {
+            const newSaldo = money + bankAccount[i].saldo;
+            return console.log("Beste " + bankAccount[i].name + ", uw wilt $ "+ money + ",- op de bank zetten. Uw nieuwe saldo is $ " + newSaldo + ",-");
+        }
+        if (!(pin === bankAccount[i].pin) === (id === bankAccount[i].id)) {
+            console.log("Probeer het nogmaals")
+        }
+    }
+}
+stortFunction(3333,4,10000)
